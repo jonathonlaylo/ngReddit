@@ -2,10 +2,11 @@
 import angular from 'angular';
 import * as uiRouter from 'angular-ui-router';
 import {DefaultState, DefaultCtrl} from './default';
-// import DefaultCtrl from './default/controller';
+import {AwwState, AwwCtrl} from './aww';
 import '../style/app.css';
 
 console.log(DefaultState);
+console.log(AwwCtrl);
 
 let app = () => {
   return {
@@ -19,13 +20,15 @@ const MODULE_NAME = 'app';
 angular.module(MODULE_NAME, ['ui.router'])
   .config(($stateProvider) => {
     $stateProvider
-      .state(DefaultState.name, DefaultState);
+      .state(DefaultState.name, DefaultState)
+      .state(AwwState.name, AwwState);
   })
   .directive('app', app)
   .run(($state) =>{
     $state.go('default');
   })
-  .controller('DefaultCtrl', DefaultCtrl);
+  .controller('DefaultCtrl', DefaultCtrl)
+  .controller('AwwCtrl', AwwCtrl);
 
 
 export default MODULE_NAME;
