@@ -2,16 +2,16 @@
 import angular from 'angular';
 import * as uiRouter from 'angular-ui-router';
 import {DefaultState, DefaultCtrl} from './default';
-import {AwwState, AwwCtrl} from './aww';
+import {AwwState, AwwCtrl, AwwService } from './aww';
 import '../style/app.css';
 
-console.log(DefaultState);
-console.log(AwwCtrl);
+// console.log(DefaultState);
+// console.log(AwwState);
 
 let app = () => {
   return {
     template: require('./app.html'),
-    // controllerAs: 'app'
+    controllerAs: 'app'
   };
 };
 
@@ -28,7 +28,7 @@ angular.module(MODULE_NAME, ['ui.router'])
     $state.go('default');
   })
   .controller('DefaultCtrl', DefaultCtrl)
-  .controller('AwwCtrl', AwwCtrl);
-
+  .controller('AwwCtrl', AwwCtrl)
+  .service('AwwService', AwwService);
 
 export default MODULE_NAME;

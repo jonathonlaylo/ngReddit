@@ -11,6 +11,7 @@ export const AwwService = [
 
     getPosts(){
       return this.$http.get(this.endpoint);
+
     }
   }
 ];
